@@ -2,13 +2,17 @@
   "name": "test-graph",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "get.js",
   "scripts": {
-    "test": "post"
+    "test": "node get.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@microsoft/microsoft-graph-client": "2.2.1"
+    "@azure/msal-node": "1.2.0",
+    "@microsoft/microsoft-graph-client": "2.2.1",
+    "dotenv": "10.0.0",
+    "isomorphic-fetch": "3.0.0",
+    "msal": "1.4.11"
   }
 }
