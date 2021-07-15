@@ -4,8 +4,7 @@ async function getToken() {
   // initialize "Confidential" Client Application (as opposed to "Public" ie. browser applications)
   const tokenResponse = await new ConfidentialClientApplication({
     auth: {
-      authority:
-        `https://login.microsoftonline.com/${process.env.TENANT_ID}`,
+      authority: `https://login.microsoftonline.com/${process.env.TENANT_ID}`,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET, // Only for Confidential Client Applications
     },
@@ -24,4 +23,4 @@ async function getToken() {
   return tokenResponse.accessToken;
 }
 
-module.exports = { getToken }
+module.exports = { getToken };
