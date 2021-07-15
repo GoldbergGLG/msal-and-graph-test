@@ -4,7 +4,8 @@
   "description": "",
   "main": "get.js",
   "scripts": {
-    "test": "node get.js"
+    "test": "node get.js",
+    "post": "node post.js"
   },
   "author": "",
   "license": "ISC",

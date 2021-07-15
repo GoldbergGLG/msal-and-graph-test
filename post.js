@@ -15,8 +15,21 @@ const { getToken } = require("./auth");
 require("isomorphic-fetch");
 const { Client } = require("@microsoft/microsoft-graph-client");
 
-const getEmails = async (client, mailbox) => {
-  return await client.api(`/users/${mailbox}/messages`).get();
+const createDraft = async (client, mailbox) => {
+  return await client.api(`/users/${mailbox}/messages`).post({
+    subject: "my test from test app",
+    body: {
+      contentType: "Text",
+      content: "The test app works.",
+    },
+    toRecipients: [
+      {
+        emailAddress: {
+          address: "dgoldberg@glgroup.com",
+        },
+      },
+    ],
+  });
 };
 
 async function main() {
@@ -28,7 +41,7 @@ async function main() {
     },
   });
 
-  console.log(await getEmails(client, process.env.MAILBOX));
+  console.log(await createDraft(client, process.env.MAILBOX));
 }
 
 main();
